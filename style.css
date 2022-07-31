@@ -9,11 +9,9 @@
 
 body {
     max-width: 800px;
-    text-align: center;
-
     background-color: blanchedalmond;
-
-
+    
+    text-align: center;
 }
 
 .boxTitle {
@@ -27,18 +25,16 @@ body {
     border-bottom: 2px solid blue;
 }
 .title span {
-    
     color: blue;
-
 }
 
 .hintField {
+    font-size: 1em;
     width: 245px;
     height: 40px;
-    font-size: 1em;
-
     border-width: 1px;
     border-radius: 10px;
+
     text-align: center;
     /*margin-left: 75px;*/
 }
@@ -46,10 +42,10 @@ body {
 .hintButton {
     width: 85px;
     height: 40px;
-    font-size: 1em;
-
     border-width: 1px;
     border-radius: 10px;
+    
+    font-size: 1em;
     cursor: pointer;
 }
 
@@ -59,12 +55,12 @@ body {
 
 .gameStatus {
     width: 331px;
-    text-align: left;
-
     padding: 2px;
+    margin: 5px auto;
+    
+    text-align: center;
     /*border: 2px solid gray;
     border-radius: 5px;*/
-    margin: 5px auto;
     /*margin: 5px 271px;*/
 }
 
@@ -72,18 +68,18 @@ body {
     max-width: 330px;
     font-size: 1.5em;
     text-align: left;
+    
     display: flex;
+    flex-wrap: wrap;
 }
 
 .hints p {
     width: 80px;
     height: 60px;
-    text-align: center;
-
+    background-color: rgba(0, 0, 255, 0.85);
     border-radius: 10px;
-    padding: 5px;
-    /*display: inline-block;*/
+    padding: 13px;
+    margin-top: 5px;
 
-    background-color: blue;
-
+    text-align: center;
 }
