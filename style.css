@@ -32,7 +32,7 @@ body {
 
 }
 
-.campoPalpite {
+.hintField {
     width: 245px;
     height: 40px;
     font-size: 1em;
@@ -43,7 +43,7 @@ body {
     /*margin-left: 75px;*/
 }
 
-.envioPalpite {
+.hintButton {
     width: 85px;
     height: 40px;
     font-size: 1em;
@@ -53,20 +53,8 @@ body {
     cursor: pointer;
 }
 
-.envioPalpite:hover{
+.hintButton:hover{
     background-color: #cac6c6;
-}
-
-.gameAbout {
-    width: 331px;
-    text-align: center;
-
-    padding: 5px;
-    /*border: 2px solid gray;*/
-    border-radius: 5px;
-    margin: 5px auto;
-
-    background-color: #5c36e6;
 }
 
 .gameStatus {
@@ -80,14 +68,14 @@ body {
     /*margin: 5px 271px;*/
 }
 
-.palpites {
+.hints {
     max-width: 330px;
     font-size: 1.5em;
     text-align: left;
     display: flex;
 }
 
-.palpites p {
+.hints p {
     width: 80px;
     height: 60px;
     text-align: center;
