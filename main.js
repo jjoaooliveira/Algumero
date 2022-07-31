@@ -1,120 +1,38 @@
-//gera o numero
-let numeroAleatorio = Math.floor(Math.random()*100)+1;
-console.log(numeroAleatorio);
+let num = Math.floor((Math.random()*100)+1);
 
-let userInput = document.querySelector('.campoPalpite');
-let trigger = document.querySelector('.envioPalpite');
-let result = document.querySelector('.resultado')
-let dicas = document.querySelector('.dica');
-//let historico = document.querySelector('.palpites');
+const hintField = document.querySelector('.hintField');
+const hintButton = document.querySelector('.hintButton');
+const hints = document.querySelector('.hints'); 
+const gameStatus = document.querySelectorAll('.gameStatus');
+console.log(num);
 
-let botaoReinicio;
-let contagem = 1;
+hintButton.addEventListener('click', checkNumber);
+let cont = 0;
 
-userInput.focus();
 
 function checkNumber(){
-    let palpite = Number(userInput.value);
-    //console.log(palpite);
+    let userInput = Number(hintField.value);
+    console.log(userInput);
+    
+    if(userInput === num){
+        gameStatus[0] = '-ACERTOU-';
+        gameStatus[1] = '';
 
-    /*if (contagem === 1) {
-        historico.textContent = 'Palpites: ';
-    }*/
-
-    if(palpite === numeroAleatorio){
-        result.textContent = '-ACERTOU-';
-        dicas.textContent = '';
-        //historico.textContent += palpite;
-        //console.log('acerto: ' + palpite);
-        fimDeJogo();
-        
-    } else if(contagem === 10){
-        result.textContent = '-FIM DE JOGO-';
-        dicas.textContent = '';
-        //historico.textContent += palpite;
-        //console.log('fim: ' + palpite);
-        fimDeJogo();
+    } else if(cont === 6){
+        gameStatus[0] = '-FIM DE JOGO-';
+        gameStatus[1] = '';
 
     } else {
-        result.textContent = '-ERRADO-'
-        //historico.textContent += palpite + ' ';
-        historicoBlocks(palpite);
+        gameStatus[0] = '-ERRADO-';
 
-        if (palpite > numeroAleatorio) {
-            dicas.textContent = 'Palpite maior que o numero';
-            //console.log('erro>: ' + palpite);
+        if(userInput > num){
+            gameStatus[1] = 'TENTE UM NUMERO MENOR';
 
         } else {
-            dicas.textContent = 'Palpite é menor que o numero';
-            //console.log('erro<: ' + palpite);
+            gameStatus[1] = 'TENTE UM NUMERO MAIOR';
         }
     }
-    contagem++;
-    userInput.value = '';
-    userInput.focus();
-
+    
+    //regHints(userInput);
+    cont++;
 }
-trigger.addEventListener('click', checkNumber);
-
-function fimDeJogo(){
-    userInput.disabled = true;
-    trigger.disabled = true;
-    botaoReinicio = document.createElement('button');
-    botaoReinicio.textContent = 'Reiniciar o jogo';
-    document.body.appendChild(botaoReinicio);
-    botaoReinicio.addEventListener('click', gameReinicio);
-
-    botaoReinicio.style.width = '150px';
-    botaoReinicio.style.height = '40px';
-    botaoReinicio.style.borderRadius = '10px';
-    botaoReinicio.style.border = '1px solid black'; 
-
-}
-
-function gameReinicio(){
-    contagem = 1;
-    let restartGameStatus = document.querySelectorAll('.gameStatus p');
-
-    for (let i = 0; i < restartGameStatus.length; i++) {
-        restartGameStatus[i].textContent = '';
-    }
-
-    botaoReinicio.parentNode.removeChild(botaoReinicio);
-
-    trigger.disabled = false;
-    userInput.disabled = false;
-    userInput.value = '';
-    numeroAleatorio = Math.floor(Math.random()*100)+1; 
-}
-
-function historicoBlocks(palpite){
-    let core = document.querySelector('.palpites');
-    let bloco = document.createElement('p');
-
-    bloco.textContent = palpite;
-    core.appendChild(bloco);
-}
-
-
-/*var list = document.querySelector('.output ul');
-list.innerHTML = '';
-var stations = ['MAN675847583748sjt567654;Manchester Piccadilly',
-                'GNF576746573fhdg4737dh4;Greenfield',
-                'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
-                'SYB4f65hf75f736463;Stalybridge',
-                'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
-
-for (var i = 0; i < stations.length; i++) {
-  var input = stations[i];
-  
-  let code3 = input.slice(0,3);
-  let codeNameStation = input.slice(input.indexOf(';') +1, input.length);
-  let nameStation = code3 + ': ' + codeNameStation; 
-
-  var result = nameStation;
-  var listItem = document.createElement('li');
-  listItem.textContent = result;
-  list.appendChild(listItem);
-}
-*/
-
