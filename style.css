@@ -8,8 +8,8 @@
 }
 
 body {
-    max-width: 800px;
-    background-color: blanchedalmond;
+    max-width: 400px;
+    background-color: rgb(26, 31, 44);
     
     text-align: center;
 }
@@ -22,35 +22,22 @@ body {
 .title {
     /* font-weight: ;*/
     width: 180px;
-    border-bottom: 2px solid blue;
-}
-.title span {
-    color: blue;
+    color: white;
+    /*border-bottom: 2px solid blue;*/
 }
 
 .hintField {
-    font-size: 1em;
-    width: 245px;
-    height: 40px;
-    border-width: 1px;
-    border-radius: 10px;
+    font-size: 1.3em;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(36, 43, 61);;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
 
-    text-align: center;
+    text-align: left;
     /*margin-left: 75px;*/
-}
-
-.hintButton {
-    width: 85px;
-    height: 40px;
-    border-width: 1px;
-    border-radius: 10px;
-    
-    font-size: 1em;
-    cursor: pointer;
-}
-
-.hintButton:hover{
-    background-color: #cac6c6;
 }
 
 .gameStatus {
@@ -80,6 +67,7 @@ body {
     border-radius: 10px;
     padding: 13px;
     margin-top: 5px;
+    color: white;
 
     text-align: center;
 }
