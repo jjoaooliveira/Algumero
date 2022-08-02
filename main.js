@@ -1,12 +1,18 @@
 let num = Math.floor((Math.random()*100)+1);
 
 const hintField = document.querySelector('.hintField');
-const hintButton = document.querySelector('.hintButton');
 const hints = document.querySelector('.hints'); 
 const gameStatus = document.querySelectorAll('.gameStatus > p');
 console.log(num);
 
-hintButton.addEventListener('click', checkNumber);
+//hintButton.addEventListener('click', checkNumber);
+
+document.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+        checkNumber();
+    }
+});
+
 let cont = 0;
 hintField.focus();
 
@@ -18,13 +24,13 @@ function checkNumber(){
         gameStatus[0].textContent = '-ACERTOU-';
         gameStatus[1].textContent = '';
 
-        //gameOver();
+        gameOver();
 
-    } else if(cont === 6){
+    } else if(cont === 9){
         gameStatus[0].textContent = '-FIM DE JOGO-';
         gameStatus[1].textContent = '';
 
-        //gameOver();
+        gameOver();
 
     } else {
         gameStatus[0].textContent = '-ERRADO-';
@@ -34,12 +40,13 @@ function checkNumber(){
 
         } else {
             gameStatus[1].textContent = 'TENTE UM NUMERO MAIOR';
-            
+
         }
 
-        hintField.focus();
     }
+    hintField.focus();
     hintField.value = '';
+    
     regHints(userInput);
     cont++;
 }
@@ -51,4 +58,25 @@ regHints = function(userInput){
     hints.appendChild(blockHint);
 } 
 
-//function gameOver(){}
+function gameOver(){
+    hintField.disabled = true;
+    hintButton.disabled = true;
+    
+}
+
+restartGame = function(){
+    num = Math.floor(Math.random()*100)+1;
+    let boxHints = document.querySelectorAll('.hints > p');
+    cont = 0;
+    
+    hintField.disabled = false;
+    hintButton.disabled = false;
+    
+    
+    gameStatus[0].textContent = '';
+    gameStatus[1].textContent = '';
+
+    for(let i = 0; i <= boxHints.length - 1; i++){
+        hints.removeChild(boxHints[i]); 
+    }
+}
