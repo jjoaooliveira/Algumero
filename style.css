@@ -1,29 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 
 * {
-    margin: auto;
+    font-family: 'Open Sans', sans-serif;
     padding: 0px;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
 }
 
 body {
     max-width: 400px;
     background-color: rgb(26, 31, 44);
-    
-    text-align: center;
+    margin: auto;
 }
 
 .boxTitle {
-    margin: 20px auto;
+    margin: 40px auto;
     max-width: 200px;
-}
-
-.title {
-    /* font-weight: ;*/
-    width: 180px;
-    color: white;
-    /*border-bottom: 2px solid blue;*/
+    text-align: center;
 }
 
 .hintField {
@@ -34,21 +26,20 @@ body {
     color: white;
     border: 1px solid white;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
 
     text-align: left;
-    /*margin-left: 75px;*/
 }
 
 .gameStatus {
-    width: 331px;
+    width: 400px;
+    height: 100px;
     padding: 2px;
-    margin: 5px auto;
-    
-    text-align: center;
-    /*border: 2px solid gray;
-    border-radius: 5px;*/
-    /*margin: 5px 271px;*/
+    margin: 10px 0 10px 0;
+    /*border: 1px solid white;*/
+
+    display: flex;
+    justify-content: space-between;
 }
 
 .hints {
@@ -60,10 +51,11 @@ body {
     flex-wrap: wrap;
 }
 
-.hints p {
+.box {
     width: 80px;
     height: 60px;
-    background-color: rgba(0, 0, 255, 0.85);
+    background-color: rgb(39 47 67);
+    border: 1px solid white;
     border-radius: 10px;
     padding: 13px;
     margin-top: 5px;
