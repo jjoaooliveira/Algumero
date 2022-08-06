@@ -31,35 +31,44 @@ body {
     text-align: left;
 }
 
-.gameStatus {
-    width: 400px;
-    height: 100px;
-    padding: 2px;
-    margin: 10px 0 10px 0;
-    /*border: 1px solid white;*/
-
+.hints {
+    max-width: 40
+    0px;
+    font-size: 1.5em;
+    margin: 15px auto;
     display: flex;
     justify-content: space-between;
-}
-
-.hints {
-    max-width: 330px;
-    font-size: 1.5em;
-    text-align: left;
-    
-    display: flex;
     flex-wrap: wrap;
 }
 
 .box {
-    width: 80px;
-    height: 60px;
+    width: 100%;
     background-color: rgb(39 47 67);
     border: 1px solid white;
-    border-radius: 10px;
-    padding: 13px;
-    margin-top: 5px;
+    border-radius: 5px;
+    padding: 8px;
     color: white;
+    margin: 10px 0;
 
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+#button {
+    width: 90px;
+    height: 60px;
+    font-size: 1.2em;
+    color: white;
+    background-color: rgb(57, 63, 90);
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 10px 160px;
+}
+
+#button:hover {
+    background-color: rgb(80, 83, 100);
+    cursor: pointer;
+}
+
