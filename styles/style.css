@@ -85,3 +85,28 @@ footer .button {
     height: 30px;
     object-fit: contain;
 }
+
+.popup {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.501);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.popup .popupContent {
+    width: 150px;
+    height: 200px;
+    background-color: darkslateblue;
+}

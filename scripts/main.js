@@ -2,7 +2,9 @@ let num = Math.floor((Math.random()*100)+1);
 const hintField = document.querySelector('.hintField');
 const hints = document.querySelector('.hints'); 
 const footer = document.querySelector('footer');
+const header = document.querySelector('header');
 let restButton;
+
 const imgCollection = [
     '../images/minus-480.png',
     '../images/plus-480.png',
@@ -17,7 +19,6 @@ hintField.addEventListener('keydown', function(e){
         (isNaN(hintField.value) || hintField.value === '' || hintField.value > 100 ? alert('O campo deve ser preenchido com um Número de 0 á 100.') : checkNumber());
     }
 });
-
 
 let cont = 0;
 hintField.focus();
@@ -84,4 +85,10 @@ restartGame = function(){
     
     hintField.disabled = false;
     hintField.focus();
+}
+
+function initPopup() {
+    const popup = document.getElementById('popupp');
+    popup.classList.add('show');
+    
 }

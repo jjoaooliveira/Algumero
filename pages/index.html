@@ -8,11 +8,16 @@
     <title>Algumero</title>
 </head>
 <body>
-    <main>
+    <header>
+        <div class="popup" id="popupp">
+            <div class="popupContent"></div>
+        </div>
         <div class="topLayout">
             <h1 class= "topTitle", style="color: white;">ALGUMERO</h1>
-            <button type="button" class="button">?</button>
+            <button type="button" class="button" id="helpButton" onclick="initPopup()">?</button>
         </div>
+    </header>
+    <main>
         <div class="gameBody">
             <input type="text" class="hintField" placeholder="Digite seu palpite" autocapitalize="off" autocomplete="off">
         </div>
