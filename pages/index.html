@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Algumero</title>
+</head>
+<body>
+    <header>
+        <div class="popup" id="helpPopup">
+            <div class="popupContent">
+                <h1>COMO JOGAR</h1>
+                <p>
+                    Algumero é um web game onde o objetivo é descobrir qual o número sorteado pelo sistema. Através de <b>palpites</b>, você deve descobrir qual número foi escolhido tomando como base as dicas fornecidas a cada tentativa. Você só tem <b>10 tentativas</b> para acertar.
+                </p>
+                <p>
+                    Caso o palpite seja menor que o número sorteado, o sinal &plus; aparecerá no registro:
+                </p>
+                <div class="box" style="background-color: black;"> 50
+                    <img src="../images/plus-480.png" alt="sinal de soma" class="img">
+                </div>
+                <p>
+                    Caso o palpite seja maior que o número sorteado, o sinal &minus; aparecerá no registro:
+                </p>
+                <div class="box" style="background-color: black;"> 50
+                    <img src="../images/minus-480.png" alt="sinal de subtração" class="img">
+                </div>
+                <p>
+                    O sinal indica se é necessário aumentar ou diminuir o valor do seu palpite.
+                </p>
+                <p>
+                    
+                </p>
+            </div>
+        </div>
+        <div class="topLayout">
+            <h1 class= "topTitle", style="color: white;">ALGUMERO</h1>
+            <img src="../images/interrogacao-480.png" alt="null" class="img" onclick="initPopup('helpPopup')">
+        </div>
+    </header>
+    <main>
+        <div class="gameBody">
+            <input type="text" class="hintField" placeholder="Digite seu palpite" autocapitalize="off" autocomplete="off">
+        </div>
+        <div class="hints"></div>
+    </main>
+    <footer></footer>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
+
