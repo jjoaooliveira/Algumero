@@ -81,9 +81,22 @@ footer .button {
     margin-left: 65px;
 }
 
-.hints img {
+img {
     height: 30px;
     object-fit: contain;
+}
+
+.topLayout img {
+    margin-left: 80px;
+    cursor: pointer;
+    /* background-color: rgba(24, 24, 24, 0.501); */
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 2px;
+}
+
+.topLayout img:hover {
+    background-color: rgba(69, 69, 69, 0.608);
 }
 
 .popup {
@@ -95,7 +108,7 @@ footer .button {
     left: 0px;
     visibility: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -106,7 +119,14 @@ footer .button {
 }
 
 .popup .popupContent {
-    width: 150px;
-    height: 200px;
-    background-color: darkslateblue;
+    width: 500px;
+    height: auto;
+    background-color: #4f4e58;
+    margin-top: 115px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-align: justify;
+    color: white;
+    font-family: sans-serif;
 }

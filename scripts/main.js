@@ -87,8 +87,13 @@ restartGame = function(){
     hintField.focus();
 }
 
-function initPopup() {
-    const popup = document.getElementById('popupp');
+function initPopup(itemId) {
+    const popup = document.getElementById(itemId);
     popup.classList.add('show');
-    
+    popup.addEventListener('click', (e) => {
+        if(e.target.id == popup.id || e.target.className != 'popupContent') {
+            popup.classList.remove('show');
+            localStorage.closePopup = itemId;
+        }
+    })
 }
