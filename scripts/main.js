@@ -12,7 +12,7 @@ const imgCollection = [
     '../images/correct-480.png'
 ]
 
-console.log(num);
+//console.log(num);
 
 hintField.addEventListener('keydown', function(e){
     if(e.key === 'Enter'){
