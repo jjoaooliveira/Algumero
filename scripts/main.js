@@ -12,8 +12,6 @@ const imgCollection = [
     '../images/correct-480.png'
 ]
 
-//console.log(num);
-
 hintField.addEventListener('keydown', function(e){
     if(e.key === 'Enter'){
         (isNaN(hintField.value) || hintField.value === '' || hintField.value > 100 ? alert('O campo deve ser preenchido com um Número de 0 á 100.') : checkNumber());
