@@ -1,97 +1,110 @@
 let num = Math.floor((Math.random()*100)+1);
-const hintField = document.querySelector('.hintField');
+const hintInputField = document.querySelector('.input-text-field');
 const hints = document.querySelector('.hints'); 
-const footer = document.querySelector('footer');
+const appBody = document.querySelector('.app-body');
 const header = document.querySelector('header');
-let restButton;
+var restartButton;
 
-const imgCollection = [
-    '../images/minus-480.png',
-    '../images/plus-480.png',
-    '../images/x-480.png',
-    '../images/correct-480.png'
-]
+const iconsCollection = [
+    'remove',
+    'add',
+    'close',
+    'check'
+];
 
-hintField.addEventListener('keydown', function(e){
+hintInputField.addEventListener('keydown', function(e) {
     if(e.key === 'Enter'){
-        (isNaN(hintField.value) || hintField.value === '' || hintField.value > 100 ? alert('O campo deve ser preenchido com um Número de 0 á 100.') : checkNumber());
+        (isNaN(hintInputField.value) || hintInputField.value === '' || hintInputField.value > 100 ? alert('O campo deve ser preenchido com um Número de 0 á 100.') : checkInput());
     }
 });
 
 let cont = 0;
-hintField.focus();
+hintInputField.focus();
 
-function checkNumber(){
-    let userInput = Number(hintField.value);
+function checkInput(){
+    let userInput = Number(hintInputField.value);
 
     if(userInput === num){
-        regHints(userInput, 'rgb(101 5 192)', imgCollection[3]);
-        gameOver(); 
+        regHints(userInput, 'rgb(101 5 192)', iconsCollection[3]);
+        gameOver();
 
     } else if(cont === 9){
-        regHints(userInput, 'rgb(108 108 108)', imgCollection[2]);
+        regHints(userInput, 'rgb(108 108 108)', iconsCollection[2]);
         gameOver();
 
     } else {
         if(userInput > num){
-            regHints(userInput, 'rgb(0 0 0)', imgCollection[0]);
+            regHints(userInput, 'rgb(0 0 0)', iconsCollection[0]);
 
         } else {
-            regHints(userInput, 'rgb(0 0 0)', imgCollection[1]);
+            regHints(userInput, 'rgb(0 0 0)', iconsCollection[1]);
         }
         
     }
-    hintField.focus();
-    hintField.value = '';
-    
+
+    hintInputField.focus();
+    hintInputField.value = '';
     cont++;
 }
 
-regHints = function(userInput, rgb, hintImg){
+function regHints(userInput, rgb, hintIcon) {
     let blockHint = document.createElement('div');
-    let img = document.createElement('img')
+    let i = document.createElement('i')
 
     blockHint.setAttribute('class', 'box');
     blockHint.textContent = userInput;
-    img.setAttribute('src', hintImg)
-    img.setAttribute('class', 'img')
+    i.innerText = hintIcon;
+    i.setAttribute('class', 'material-icons');
 
-    blockHint.append(img)
+    blockHint.append(i);
     blockHint.style.backgroundColor = rgb;
 
     hints.appendChild(blockHint);
 } 
 
-function gameOver(){
-    hintField.disabled = true;
-    
-    restButton = document.createElement('button');
-    restButton.textContent = 'restart';
-    restButton.setAttribute('class', 'button');
-    footer.append(restButton);
-    restButton.addEventListener('click', restartGame); 
+function gameOver() {
+    hintInputField.disabled = true;
+    createButton();
 }
 
-restartGame = function(){
+function createButton() {
+    let restartButton = document.createElement('button');
+    restartButton.textContent = 'Restart';
+    restartButton.setAttribute('class', 'app-restart-button');
+    restartButton.addEventListener('click', restartGame);
+    appBody.append(restartButton);
+}
+
+function restartGame() {
     let boxHints = document.querySelectorAll('.hints > div');
     for(let i = 0; i <= boxHints.length - 1; i++){
         hints.removeChild(boxHints[i]); 
     }
-    restButton.parentNode.removeChild(restButton);
+    restartButton = document.querySelector('.app-restart-button');
+    appBody.removeChild(restartButton);
     num = Math.floor(Math.random()*100)+1;
     cont = 0;
-    
-    hintField.disabled = false;
-    hintField.focus();
+
+    hintInputField.disabled = false;
+    hintInputField.focus();
 }
 
-function initPopup(itemId) {
-    const popup = document.getElementById(itemId);
-    popup.classList.add('show');
-    popup.addEventListener('click', (e) => {
-        if(e.target.id == popup.id || e.target.className != 'popupContent') {
-            popup.classList.remove('show');
-            localStorage.closePopup = itemId;
-        }
-    })
+function showPopup() {
+    modal.showModal();
 }
+
+function checkClick(e) {
+    console.log(e);
+}
+
+function closeModal() {
+    modal.close();
+}
+
+const helpButton = document.querySelector('.icon-help');
+const modal = document.querySelector('.app-help-modal');
+const closeModalButton = document.querySelector('.modal-close-button');
+
+helpButton.addEventListener('click', showPopup);
+modal.addEventListener('click', checkClick);
+closeModalButton.addEventListener('click', closeModal);

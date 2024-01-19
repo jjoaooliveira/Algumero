@@ -5,49 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <title>Algumero</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Algumero | Game</title>
 </head>
 <body>
     <header>
-        <div class="popup" id="helpPopup">
-            <div class="popupContent">
-                <h1>COMO JOGAR</h1>
-                <p>
-                    Algumero é um web game onde o objetivo é descobrir qual o número sorteado pelo sistema. Através de <b>palpites</b>, você deve descobrir qual número foi escolhido tomando como base as dicas fornecidas a cada tentativa. Você só tem <b>10 tentativas</b> para acertar.
-                </p>
-                <p>
-                    Caso o palpite seja menor que o número sorteado, o sinal &plus; aparecerá no registro:
-                </p>
-                <div class="box" style="background-color: black;"> 50
-                    <img src="../images/plus-480.png" alt="sinal de soma" class="img">
-                </div>
-                <p>
-                    Caso o palpite seja maior que o número sorteado, o sinal &minus; aparecerá no registro:
-                </p>
-                <div class="box" style="background-color: black;"> 50
-                    <img src="../images/minus-480.png" alt="sinal de subtração" class="img">
-                </div>
-                <p>
-                    O sinal indica se é necessário aumentar ou diminuir o valor do seu palpite.
-                </p>
-                <p>
-                    
-                </p>
+        <dialog class="app-help-modal">
+            <header class="modal-header">
+                <h2>Como Jogar</h1>
+                <button class="modal-close-button">&times;</button>
+            </header>
+            <p>
+                Algumero é um web game onde o objetivo é descobrir qual o número sorteado pelo sistema. Através de <b>palpites</b>, você deve descobrir qual número foi escolhido tomando como base as dicas fornecidas a cada tentativa. Você só tem <b>10 tentativas</b> para acertar.
+            </p>
+            <p>
+                Caso o palpite seja menor que o número sorteado, o sinal &plus; aparecerá no registro:
+            </p>
+            <div class="box" style="background-color: black;"> 
+                <span>50</span>
+                <i>&plus;</i>
             </div>
-        </div>
-        <div class="topLayout">
-            <h1 class= "topTitle", style="color: white;">ALGUMERO</h1>
-            <img src="../images/interrogacao-480.png" alt="null" class="img" onclick="initPopup('helpPopup')">
-        </div>
+            <p>
+                Caso o palpite seja maior que o número sorteado, o sinal &minus; aparecerá no registro:
+            </p>
+            <div class="box" style="background-color: black;"> 
+                <span>50</span>
+                <i>&minus;</i>
+            </div>
+            <p>
+                O sinal indica se é necessário aumentar ou diminuir o valor do seu palpite.
+            </p>
+        </dialog>
+        <nav>
+            <span class="app-logo">algumero</span>
+            <i class="material-symbols-outlined icon-help">more_vert</i>
+        </nav>
     </header>
     <main>
-        <div class="gameBody">
-            <input type="text" class="hintField" placeholder="Digite seu palpite" autocapitalize="off" autocomplete="off">
-        </div>
-        <div class="hints"></div>
+        <section class="app-body">
+            <input type="text" class="input-text-field" placeholder="digite seu palpite" autocapitalize="off" autocomplete="off">
+            <div class="hints"></div>
+        </section>
     </main>
     <footer></footer>
     <script src="../scripts/main.js"></script>
 </body>
 </html>
-
